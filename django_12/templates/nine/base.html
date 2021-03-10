@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<title>{% block title %}首页{% endblock %}</title>
+	<style type="text/css">
+		{% block css %}
+			* {
+				margin: 0px;
+				padding: 0px;
+			}
+			li {
+				list-style: none;
+			}
+
+			.header {
+				height: 50px;
+				text-align: center;
+			}
+
+			.header .title {
+				line-height: 50px;
+			}
+
+			.content {
+				width: 960px;
+				margin: auto;
+			}
+			.check li {
+				line-height: 40px
+			}
+		{% endblock %}
+	</style>
+</head>
+<body>
+{% block header %}
+	<div class="header">
+		{% block header_context %}
+			<h4 class="title">学生管理系统</h4>
+		{% endblock %}
+	</div>
+{% endblock %}
+{% block content %}
+	<div class="content">
+		{% block content_context %}
+			<ul class="check">
+				<li><a href="{% url 'page' index='classes' %}">班级管理</a></li>
+				<li><a href="{% url 'page' index='student' %}">学生管理</a></li>
+				<li><a href="{% url 'page' index='course' %}">课程管理</a></li>
+			</ul>
+		{% endblock %}
+	</div>
+{% endblock %}
+</body>
+</html>

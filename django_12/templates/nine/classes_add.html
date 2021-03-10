@@ -1,0 +1,14 @@
+{% extends 'nine/base.html' %}
+{% block title %}
+	更新班级
+{% endblock %}
+{% block content_context %}
+	<form action="{% url 'classes_add' %}" method="get">
+		<input type="hidden" name="id" value="{{ classes.id }}">
+		<ul>
+			<li>班级名：<input type="text" name="name" id="" value="{{ classes.name }}" autocomplete="off"></li>
+			<li>班级口号：<input type="text" name="slogan" id="" value="{{ classes.slogan }}" autocomplete="off"></li>
+			<li><input type="submit" value="提交"><input type="reset" value="重置"></li>
+		</ul>
+	</form>
+{% endblock %}

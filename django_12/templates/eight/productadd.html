@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>添加产品</title>
+</head>
+<body>
+{{ msg }}
+<form action="{% url 'product_add' %}" method="get">
+	<ul>
+		<li>请输入产品名：<input type="text" name="name" id="name" autocomplete="off"></li>
+		<li>请输入产品价格：<input type="text" name="price" id="price" autocomplete="off"></li>
+		<li>请输入产品封面图链接：<input type="text" name="cover_map" id="cover_map" autocomplete="off"></li>
+		<li>请输入产品跳转连接：<input type="text" name="link" id="link" autocomplete="off"></li>
+		<li>
+			<input type="submit">添加</input>
+			<input type="reset" value="重置">
+		</li>
+	</ul>
+</form>
+</body>
+</html>

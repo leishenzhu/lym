@@ -1,0 +1,16 @@
+{% extends 'nine/base.html' %}
+{% load common_extras %}
+{% block title %}
+	课程更新
+{% endblock %}
+{% block content_context %}
+	<form action="{% url 'course_add' %}" method="get">
+		<input type="hidden" name="id" value="{{ course.id }}">
+		<ul>
+			<li>课程名：<input type="text" name="name" id="" value="{{ course.name }}" autocomplete="off"></li>
+			<li>学分：<input type="number" name="credit" id="" value="{{ course.credit }}" autocomplete="off"></li>
+			<li>学时：<input type="text" name="duration" id="" value="{{ course.duration }}" autocomplete="off"></li>
+			<li><input type="submit" value="提交"><input type="reset" value="重置"></li>
+		</ul>
+	</form>
+{% endblock %}

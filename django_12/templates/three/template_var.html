@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>模板变量</title>
+</head>
+<body>
+<ul>
+	<li>整数变量:{{ int_var }}</li>
+	<li>字符串变量:{{ str_var }}</li>
+	<li>函数变量:{{ fun_var }},这里会通过key得到value(函数体),调用</li>
+	<li>方法变量:{{ student_stu_var }}</li>
+	<li>对象变量:{{ student_var }}</li>
+	<li>列表变量:{{ list_var }}</li>
+	<li>元组变量:{{ tuple_var }}</li>
+	<li>字典变量:{{ dict_var }}</li>
+</ul>
+<ul>
+	<li>访问对象的属性:{{ student_var.name }}</li>
+	<li>访问对象的方法:{{ student_var.study }}</li>
+</ul>
+<ul>
+	<li>访问列表的元素:{{ list_var.1 }}</li>
+	<li>访问元组的元素:{{ tuple_var.1 }}</li>
+	<li>访问字典的元素:{{ dict_var.a }}</li>
+</ul>
+</body>
+</html>

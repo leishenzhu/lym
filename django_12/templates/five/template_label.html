@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<title>模板标签</title>
+	<style>
+		* {
+			margin: 0px;
+			padding: 0px;
+		}
+
+		li {
+			list-style: none;
+		}
+
+		.course-li li {
+			display: inline-block;
+			border-right: 1px solid gray;
+			padding: 10px 20px;
+		}
+
+		.course-li .last-li {
+			border: none;
+		}
+	</style>
+</head>
+<body>
+{#<div class="for-box">#}
+	{#	{{ course }}#}
+{#	<h3>for模板标签</h3>#}
+{#	<ul class="course-li">#}
+{#		{% for i in course %}#}
+			{#			<li>{{ forloop.counter }}、{{ i }}</li>#}
+			{#			<li>{{ forloop.counter0 }}、{{ i }}</li>#}
+			{#			<li>{{ forloop.revcounter }}、{{ i }}</li>#}
+			{#			<li>{{ forloop.revcounter0 }}、{{ i }}</li>#}
+			{#			{% if forloop.counter0 < 3 %}#}
+			{#				<li>{{ i }}</li>#}
+			{#			{% endif %}#}
+			{#			{% if forloop.counter0 == 0 %}#}
+			{#				<li style="color: red">{{ i }}</li>#}
+			{#			{% else %}#}
+			{#				<li>{{ i }}</li>#}
+			{#			{% endif %}#}
+			{#			{% if forloop.first %}#}
+			{#				<li style="color: red">{{ i }}</li>#}
+			{#			{% elif forloop.last %}#}
+			{#				<li style="color: red">{{ i }}</li>#}
+			{#			{% else %}#}
+			{#				<li>{{ i }}</li>#}
+			{#			{% endif %}#}
+{#			{% if forloop.last %}#}
+{#				<li class="last-li">{{ i }}</li>#}
+{#			{% else %}#}
+{#				<li>{{ i }}</li>#}
+{#			{% endif %}#}
+{#		{% endfor %}#}
+{#	</ul>#}
+{#</div>#}
+{#<div class="more-for-box">#}
+{#	<h3>多层for循环</h3>#}
+{#	<ul>#}
+{#		{% for i in course %}#}
+{#			<li>#}
+{#				{{ i }}#}
+{#				<ul>#}
+{#					{% for j in course_info %}#}
+{#						{% if forloop.parentloop.first %}#}
+{#							<li style="color: red">{{ j }}:<input type="text"></li>#}
+{#						{% else %}#}
+{#							<li>{{ j }}:<input type="text"></li>#}
+{#						{% endif %}#}
+{#					{% endfor %}#}
+{#				</ul>#}
+{#			</li>#}
+{#		{% endfor %}#}
+{#	</ul>#}
+{#</div>#}
+<div class="url-box">
+	<h3>url模板标签</h3>
+	<p>{% url 'template_label' %}</p>
+	<p>
+		应用：
+		{#		<a href="/five/template_label">跳转</a>#}
+		<a href="{% url 'template_label' %}">跳转</a>
+		<a href="{% url 'url_var' 'django' %}">携带参数跳转</a>
+	</p>
+</div>
+<div class="with-box">
+	<h3>with模板标签</h3>
+	{% with course.0 as firstc %}
+		<p>第一个课程{{ firstc }}</p>
+	{% endwith %}
+</div>
+<div class="autoescape">
+	<h3>autoescape模板标签</h3>
+	<ul>
+		<li>原数据：{{ html_text }}</li>
+		<li>过滤器取消自动转义{{ html_text|safe }}</li>
+		<li>
+			autoescape模板标签取消自动转义: on开启，off关闭
+			{% autoescape off %}
+				{{ html_text }}
+				{{ html_text }}
+				{{ html_text }}
+			{% endautoescape %}
+		</li>
+	</ul>
+</div>
+</body>
+</html>

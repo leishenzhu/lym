@@ -1,0 +1,48 @@
+{% extends 'nine/base.html' %}
+{% block title %}
+	班级管理
+{% endblock %}
+{% block css %}
+	{{ block.super }}
+	.table-box{text-align:center;}
+	.table-box table{display:inline-block;}
+	.menu-box::after{content:'';display:block;clear:both;}
+	.menu{float:right;}
+	.menu li{display:inline-block;margin-right:20px;}
+{% endblock %}
+{% block content_context %}
+	<div class="menu-box">
+		<ul class="menu">
+			{% block menu %}
+				<li><a href="{% url 'page' index='classes_add' %}">添加班级</a></li>
+			{% endblock %}
+			{% block goback %}
+				<li><a href="{% url 'page' index='index' %}">返回首页</a></li>
+			{% endblock %}
+		</ul>
+	</div>
+	<div class="table-box">
+		<table border="1">
+			{% block border_context %}
+				<tr>
+					<td>班级名</td>
+					<td>班级口号</td>
+					<td>班级创建时间</td>
+					<td>操作</td>
+				</tr>
+				{% for classes in classes_list %}
+					<tr>
+						<td>{{ classes.name }}</td>
+						<td>{{ classes.slogan }}</td>
+						<td>{{ classes.create_time|date:'Y/m/d H:i:s' }}</td>
+						<td>
+							<a href="{% url 'classes_del' id=classes.id %}">删除</a>
+							<a href="{% url 'classes_update' id=classes.id %}">修改</a>
+							<a href="{% url 'student_find_by_classes' id=classes.id %}">管理班级学生</a>
+						</td>
+					</tr>
+				{% endfor %}
+			{% endblock %}
+		</table>
+	</div>
+{% endblock %}

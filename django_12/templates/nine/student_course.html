@@ -1,0 +1,17 @@
+{% extends 'nine/student.html' %}
+{% load common_extras %}
+{% block title %}
+	课程报名的学员
+{% endblock %}
+{% block header_context %}
+	<h4 class="title">{{ course.name }}-课程已报名学生</h4>
+{% endblock %}
+{% block menu %}
+	<li><a href="{% url 'student_add_by_course' id=course.id %}">添加学生</a></li>
+{% endblock %}
+{% block goback %}
+	<li><a href="{% url 'page' index='course' %}">返回课程</a></li>
+{% endblock %}
+{% block operation %}
+	<a href="{% url 'course_del_student' course_id=course.id student_id=student.id %}">删除</a>
+{% endblock %}

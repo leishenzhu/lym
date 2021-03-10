@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>首页</title>
+</head>
+<body>
+{{ request }}
+{{ username }}
+{% if username %}
+	欢迎登陆：{{ username }}
+	<a href="{% url 'eleven_page' 'logout' %}">退出登录</a>
+{% else %}
+	请先登录：<a href="{% url 'eleven_page' 'login' %}">前往登录</a>
+{% endif %}
+</body>
+</html>

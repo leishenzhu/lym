@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<title>{% block title %}页面一{% endblock %}</title>
+	<style type="text/css">
+		{% block css %}
+
+			* {
+				margin: 0px;
+				padding: 0px;
+			}
+
+			.header {
+				height: 50px;
+				background-color: pink;
+			}
+
+			.center {
+				height: 500px;
+			}
+
+			.bottom {
+				height: 50px;
+				background-color: gray;
+			}
+		{% endblock %}
+	</style>
+</head>
+<body>
+{% block header %}
+	<div class="header">头部</div>
+{% endblock %}
+
+{% block center %}
+	<div class="center">
+		{% block center_text %}
+			主体
+		{% endblock %}
+	</div>
+{% endblock %}
+
+<div class="bottom">尾部</div>
+</body>
+</html>

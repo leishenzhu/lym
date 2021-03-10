@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>产品列表</title>
+</head>
+<body>
+<ul>
+	{% for product in productlist %}
+		<a href="{{ product.link }}">
+			<img src="{{ product.cover_map }}" alt="">
+			<ul>
+				<li>{{ product.name }}</li>
+				<li>{{ product.price }}</li>
+			</ul>
+		</a>
+	{% endfor %}
+
+</ul>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>模板标签</title>
+</head>
+<body>
+<div class="if-box">
+	<h3>if模板标签</h3>
+	{% if user %}
+		<p>当前用户信息</p>
+		<ul>
+		<li>
+			姓名：{{ user.name }}
+			{% ifequal user.name '一个' %}
+				<span>帅小伙</span>
+			{% endifequal %}
+		</li>
+		<li>
+			年龄：{{ user.age }}
+			{% if user.age > 10 and user.age < 30 %}
+				<span>年轻小伙</span>
+			{% endif %}
+		</li>
+		<li>
+			性别：
+			{% if user.sex == 0 %}
+				男
+			{% elif user.sex == 1 %}
+				女
+			{% else %}
+				未知
+			{% endif %}
+
+		</li>
+	{% else %}
+		<p>请先登录！</p>
+	{% endif %}
+	</ul>
+</div>
+</body>
+</html>

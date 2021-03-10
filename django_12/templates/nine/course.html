@@ -1,0 +1,27 @@
+{% extends 'nine/classes.html' %}
+{% block title %}
+	课程管理
+{% endblock %}
+{% block menu %}
+	<li><a href="{% url 'page' index='course_add' %}">添加课程</a></li>
+{% endblock %}
+{% block border_context %}
+	<tr>
+		<td>课程名</td>
+		<td>学分</td>
+		<td>课时</td>
+		<td>操作</td>
+	</tr>
+	{% for course in course_list %}
+		<tr>
+			<td>{{ course.name }}</td>
+			<td>{{ course.credit }}</td>
+			<td>{{ course.duration }}</td>
+			<td>
+				<a href="{% url 'course_del' id=course.id %}">删除</a>
+				<a href="{% url 'course_update' id=course.id %}">修改</a>
+				<a href="{% url 'student_find_by_course' id=course.id %}">查看报名学生</a>
+			</td>
+		</tr>
+	{% endfor %}
+{% endblock %}

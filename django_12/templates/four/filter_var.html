@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>过滤器</title>
+</head>
+<body>
+<ul>
+	<li>没处理的变量{{ str_var }}</li>
+	<li>转小写{{ str_var|lower }}</li>
+	<li>获取第一个值{{ str_var|first }}</li>
+	<li>获取最后一个值{{ str_var|last }}</li>
+	<li>链式调用:模拟较规范的英语句子{{ str_var|lower|capfirst }}</li>
+	<li>cut过滤器，能够去除指定字符{{ str_var|cut:' ' }}</li>
+</ul>
+<ul>
+	<li>datetime：日期时间，date：日期，time：时间</li>
+	<li>没处理的时间{{ now }}</li>
+	<li>默认的date日期格式{{ now|date }}</li>
+	<li>默认的time时间格式{{ now|time }}</li>
+	<li>xxxx年xx月xx日 xx: xx: xx24小时制{{ now|date:'Y年m月d日 H:i:s' }}</li>
+	<li>xx: xx: xx12小时制{{ now|time:'h:i:s' }}</li>
+</ul>
+<div>昵称：{{ name }}</div>
+</body>
+</html>

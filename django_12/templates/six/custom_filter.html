@@ -1,0 +1,44 @@
+{% load common_extras %}
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<title>自定义过滤器</title>
+</head>
+<body>
+<ul>
+	<li>姓名：{{ user.name }}</li>
+	<li>年龄：{{ user.age }}</li>
+	{#	<li>#}
+	{#		性别：#}
+	{#		{% if user.sex == 0 %}#}
+	{#			男#}
+	{#		{% elif user.sex == 1 %}#}
+	{#			女#}
+	{#		{% else %}#}
+	{#			未知#}
+	{#		{% endif %}#}
+	{#	</li>#}
+	<li>性别：{{ user.sex|change:sex_li }}</li>
+	<li>性别：{{ label_index|change:label_list }}</li>
+	<li>当前时间:{% current_time %}</li>
+	<li>当前时间:{% current_time_strf '%Y-%m-%d %H:%M:%S' '我是第二个参数' %}</li>
+	<li>当前时间:{% current_time_context %}</li>
+</ul>
+{#<ul>#}
+{#	{% for i in course %}#}
+{#		<li>{{ i }}</li>#}
+{#	{% endfor %}#}
+{#</ul>#}
+
+<ul>
+	{% for_iter 'course' %}
+</ul>
+<ul>
+	{% for_iter 'sex_li' %}
+</ul>
+<ul>
+	{% for_iter 'label_list' %}
+</ul>
+</body>
+</html>
